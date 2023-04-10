@@ -1,3 +1,4 @@
+// This code imports necessary libraries and functions
 import React from 'react';
 import {
   Container,
@@ -14,12 +15,16 @@ import { useMutation, useQuery } from "@apollo/client";
 import { GET_ME } from "../utils/queries";
 import { REMOVE_BOOK } from "../utils/mutations";
 
+// This function defines the SavedBooks component
 const SavedBooks = () => {
+  // This hook retrieves user data from the serve
   const {loading, data} = useQuery(GET_ME);
   let userData= data?.me || {};
+  // This hook sets up the removeBook mutation
   const [removeBook]= useMutation(REMOVE_BOOK);
   
   const handleDeleteBook = async (bookId) => {
+    // Check for a valid token
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
     if (!token) {
@@ -81,4 +86,5 @@ const SavedBooks = () => {
   );
 };
 
+// Export the SavedBooks component
 export default SavedBooks;

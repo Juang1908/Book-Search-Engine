@@ -46,7 +46,7 @@ const SearchBooks = () => {
       }
 
       const { items } = await response.json();
-
+    // format book data to match what we need in our app
       const bookData = items.map((book) => ({
         bookId: book.id,
         authors: book.volumeInfo.authors || ['No author to display'],
