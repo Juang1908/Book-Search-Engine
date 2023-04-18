@@ -6,6 +6,8 @@ import {
   Button,
   Card,
   Row
+  Jumbotron,
+  CardColumns,
 } from 'react-bootstrap';
 
 import Auth from '../utils/auth';
@@ -90,7 +92,7 @@ const SearchBooks = () => {
 
   return (
     <>
-      <div className="text-light bg-dark p-5">
+      <Jumbotron fluid className="text-light bg-dark ">
         <Container>
           <h1>Search for Books!</h1>
           <Form onSubmit={handleFormSubmit}>
@@ -113,7 +115,7 @@ const SearchBooks = () => {
             </Form.Row>
           </Form>
         </Container>
-      </div>
+      </Jumbotron>
 
       <Container>
         <h2 className='pt-5'>
@@ -121,7 +123,7 @@ const SearchBooks = () => {
             ? `Viewing ${searchedBooks.length} results:`
             : 'Search for a book to begin'}
         </h2>
-        <Row>
+        <CardColumns>
           {searchedBooks.map((book) => {
             return (
               <Col md="4">
@@ -148,7 +150,7 @@ const SearchBooks = () => {
               </Col>
             );
           })}
-        </Row>
+        </CardColumns>
       </Container>
     </>
   );
